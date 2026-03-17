@@ -7,7 +7,10 @@
 }
 
 :root {
+    /* size owner container  */
     --width-body: 1250px;
+    --box-shadow: 0px 2px 4px rgba(0,0,0,0.05);
+    --border-block: 1px solid #ddd;
 }
 
 body {
@@ -18,16 +21,31 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 30px 0 0;
+    overflow-x: hidden;
 }
+
+.root-container {
+    max-width: var(--width-body);
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* -----------------header---------------- */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: var(--width-body);
-    border-bottom: 1px solid #ddd;
+    /* width: var(--width-body); */
+    border-bottom: var(--border-block);
     padding: 0 0 20px;
     margin-bottom: 20px;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+    font-weight: 700;
 }
 
 .header-buttons {
@@ -36,17 +54,21 @@ header {
 }
 
 .header-buttons > button {
+    font-family: 'Roboto', sans-serif;;
     width: 75px;
     text-align: center;
     padding: 8px 10px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    cursor: pointer;
 }
+
+/* --------------------------navigation------------------- */
 
 .main-nav {
     background-color: #fff;
-    width: var(--width-body);
+    /* width: var(--width-body); */
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -67,8 +89,10 @@ header {
 }
 
 .main-nav__active {
-    color: rgb(50, 40, 141);
-    border-bottom: 3px solid rgb(38, 29, 124);
+    color: #2c3e50;
+    font-family: 600;
+    border-bottom: 3px solid #3498db;
+    cursor: pointer;
 }
 
 .main-nav ul li {
@@ -82,15 +106,20 @@ header {
     left: -100%;
     width: 100%;
     height: 3px;
-    background: rgb(38, 29, 124);
+    background: #3498db;
 }
 
-.main-nav ul li:hover {
-    color: rgb(50, 40, 141);
+.main-nav ul li a {
+    text-decoration: none;
+    color: #555;
+}
+
+.main-nav ul li:hover a {
+    color: #3498db;
     cursor: pointer;
 }
 
-.main-nav ul li:hover span {
+.main-nav ul li:not(.main-nav__active):hover span {
     animation: main-nav-li 0.2s ease-out forwards;
 }
 
@@ -131,4 +160,144 @@ header {
         left: 0%;
     }
 }
+
+
+/* ---------------------main------------------- */
+
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    /* width: var(--width-body); */
+    padding: 40px 0 0;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* ---------------cards------------------------- */
+
+.card {
+    min-width: 200px;
+    max-width: 385px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 200px 1fr;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: 16 / 9;
+    object-position: center;
+}
+
+.card-information {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 15px;
+}
+
+.card-information h4 {
+    color: #7f8c8d;
+}
+
+.card-info-rating {
+    color: rgb(255, 187, 0)
+}
+
+
+.card-info-button {
+    height: 32px;
+}
+
+/* ---------------------------------aside----------------------------------- */
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    margin-left: 20px;
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: var(--box-shadow);
+}
+
+:is(.filers__catigories, .filters-price_range,
+    .filers__special-offers) {
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+:is(.filers__catigories, .filters-price_range,
+    .filers__special-offers) label {
+    cursor: pointer;
+}
+
+:is(.filers__catigories, .filers__special-offers) label {
+    padding: 0 0 0 7px;
+}
+
+.filters-price_range--count {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters_buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.filters_buttons button {
+    width: 50%;
+    height: 32px;
+}
+
+
+/* ---------------footer------------------ */
+footer {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* padding: 50px 30px 0px 30px; */
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    border-top: var(--border-block)
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px 40px 30px;
+}
+
+.footer-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.footer-info-det {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-reserved {
+    text-align: center;
+    padding: 35px;
+    border-top: var(--border-block);
+
+}
+
 
