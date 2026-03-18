@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="burger-menu--back" id="burger-menu--back">
+                
+    </div>
     <div class="root-container">
         <header>
             <h1>Urban Decor</h1>
@@ -47,8 +50,14 @@
                 </li>
             </ul>
         </nav>
-        <main>
-            <section class="products">
+        <main id="main-block">
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <section class="products" id="products">
                 <div class="card">
                     <div class="card-badge">-20%</div>
                     <img src="./images/image.png" class="card-img" alt="cart image">
@@ -169,7 +178,7 @@
                     </div>
                 </div>
             </section>
-            <aside class="filters">
+            <aside class="filters" id="filters">
                 <h2>Filters</h2>
                 <div class="filers__catigories">
                     <h3>Categories</h3>
@@ -250,5 +259,6 @@
             </section>
         </footer>
     </div>
+    <script src="./script.js" defer></script>
 </body>
 </html>
