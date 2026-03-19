@@ -43,12 +43,12 @@ function burgerActivity() {
 }
 
 
-function handleResize() {
-  if (window.innerWidth > 790) {
-    burgerActivity()
-  }
-}
+// function handleResize() {
+//   if (window.innerWidth > 790) {
+//     burgerActivity()
+//   }
+// }
 
-window.addEventListener('resize', handleResize)
+// window.addEventListener('resize', handleResize)
 burgerMenu.addEventListener('click', burgerActivity)
 burgerBack.addEventListener('click', burgerActivity)
