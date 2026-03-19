@@ -7,34 +7,48 @@ const filterMenu = document.getElementById('filters')
 
 // -----------------------BURGER ACTIVITY-----------
 
-burgerMenu.addEventListener('click', () => {
+
+
+function burgerActivity() {
     if (burgerMenu.classList.contains('burger-menu--active')) {
 
 
-        filterMenu.classList.remove('with-burger')
         filterMenu.classList.remove('active')
-        
 
-        burgerMenu.classList.remove('burger-menu--active')
+        setTimeout(() => {
+            filterMenu.classList.remove('with-burger')
+            burgerBack.classList.remove('active')
+        },200)
+
         setTimeout(() => {
             burgerBack.style.display = 'none'
-        }, 200)
-        burgerBack.classList.remove('active')
-
-
-    }
-    else {
-
-
-        filterMenu.classList.add('with-burger')
-        filterMenu.classList.add('active')
-
-        burgerMenu.classList.add('burger-menu--active')
-        setTimeout(() => {
-            burgerBack.style.display = 'grid'
-        }, 200)
-        burgerBack.classList.add('active')
-
+            burgerMenu.classList.remove('burger-menu--active')
+        }, 400)
         
     }
-})
+    else {
+        burgerMenu.classList.add('burger-menu--active')
+
+        burgerBack.style.display = 'grid'
+
+        setTimeout(() => {
+            burgerBack.classList.add('active')
+            filterMenu.classList.add('with-burger')
+        },200)
+        
+        setTimeout(() => {
+            filterMenu.classList.add('active')
+        }, 400)
+    }
+}
+
+
+function handleResize() {
+  if (window.innerWidth > 790) {
+    burgerActivity()
+  }
+}
+
+window.addEventListener('resize', handleResize)
+burgerMenu.addEventListener('click', burgerActivity)
+burgerBack.addEventListener('click', burgerActivity)

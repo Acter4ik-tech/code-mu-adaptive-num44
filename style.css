@@ -361,15 +361,17 @@ main {
     position: fixed;
     display: flex;
     top: 50%;
-    left: 10px;
-    transform: translateY(-200%);
-    width: 50%;
+    /* left: 10px; */
+    left: 50%;
+    transform: translateY(-200%) translateX(-50%);
+    width: 400px;
+    /* width: 70%; */
     height: fit-content;
-    transition: trasnform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .filters.with-burger.active {
-    transform: translateY(50%);
+    transform: translateY(-50%) translateX(-50%);
 }
 
 :is(.filers__catigories, .filters-price_range,
@@ -501,6 +503,21 @@ footer h3 {
 }
 
 
+/* ----------------------MEDIA----------------------- */
+
+@media (max-width: 620px) {
+    .filters.with-burger {
+        left: 10px;
+        width: 65%;
+        transform: translateY(-200%);
+    }
+
+    .filters.with-burger.active {
+        transform: translateY(-50%);
+    }
+}
+
+
 @media (max-width: 790px) {
     .filters {
         display: none;
@@ -543,7 +560,41 @@ footer h3 {
 
 @media (max-width: 360px) {
     .burger-menu {
-        top: 440px;
+        /* top: 440px; */
+        top: 85dvh;
+    }
+    .filters {
+        gap: 10px;
+        padding: 10px 10px;
+    }
+
+    :is(.filers__catigories, .filters-price_range,
+        .filers__special-offers) {
+        gap: 10px
+    }
+
+    .filters input {
+        margin-right: 10px;
+    }
+
+    .filters h2 {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .filters h3 {
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+
+    .filters_buttons {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .filters_buttons button {
+        width: 50%;
+        padding: 8px;
     }
 }
 
