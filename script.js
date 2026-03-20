@@ -53,6 +53,26 @@ function handleResize() {
     }
 }
 
+// choose link in main navigation
+
+const nav = document.querySelector('.main-nav')
+
+nav.addEventListener('click', (event) => {
+    const link = event.target.closest('a')
+
+    if(!link) return
+
+    const allItems = document.querySelectorAll('.main-nav li')
+
+    allItems.forEach(li => li.classList.remove('main-nav__active'))
+
+    const parentLi = link.closest('li')
+
+    parentLi.classList.add('main-nav__active')
+})
+
+
+
 window.addEventListener('resize', handleResize)
 burgerMenu.addEventListener('click', burgerEnable)
 burgerBack.addEventListener('click', burgerEnable)
