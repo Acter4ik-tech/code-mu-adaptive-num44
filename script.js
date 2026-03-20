@@ -7,24 +7,27 @@ const filterMenu = document.getElementById('filters')
 
 // -----------------------BURGER ACTIVITY-----------
 
+//-------------Burger Dusable------------
 
+function burgerDisable() {
+    filterMenu.classList.remove('active')
 
-function burgerActivity() {
+    setTimeout(() => {
+        filterMenu.classList.remove('with-burger')
+        burgerBack.classList.remove('active')
+    },200)
+
+    setTimeout(() => {
+        burgerBack.style.display = 'none'
+        burgerMenu.classList.remove('burger-menu--active')
+    }, 400)
+}
+
+// -------------Burger Enable and disable-------------
+
+function burgerEnable() {
     if (burgerMenu.classList.contains('burger-menu--active')) {
-
-
-        filterMenu.classList.remove('active')
-
-        setTimeout(() => {
-            filterMenu.classList.remove('with-burger')
-            burgerBack.classList.remove('active')
-        },200)
-
-        setTimeout(() => {
-            burgerBack.style.display = 'none'
-            burgerMenu.classList.remove('burger-menu--active')
-        }, 400)
-        
+        burgerDisable()
     }
     else {
         burgerMenu.classList.add('burger-menu--active')
@@ -42,13 +45,14 @@ function burgerActivity() {
     }
 }
 
+// function for disable burger when window resizing
 
-// function handleResize() {
-//   if (window.innerWidth > 790) {
-//     burgerActivity()
-//   }
-// }
+function handleResize() {
+    if (window.innerWidth > 790) {
+        burgerDisable()
+    }
+}
 
-// window.addEventListener('resize', handleResize)
-burgerMenu.addEventListener('click', burgerActivity)
-burgerBack.addEventListener('click', burgerActivity)
+window.addEventListener('resize', handleResize)
+burgerMenu.addEventListener('click', burgerEnable)
+burgerBack.addEventListener('click', burgerEnable)

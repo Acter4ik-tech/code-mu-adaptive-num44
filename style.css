@@ -14,7 +14,7 @@
 }
 
 body {
-    position: relative;
+    /* position: relative; */
     font-family: 'Roboto', sans-serif;
     background-color: #f8f9fa;
     min-height: 100vh;
@@ -177,7 +177,6 @@ header h1 {
 main {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    /* width: var(--width-body); */
     padding: 40px 0 0;
 }
 
@@ -211,7 +210,7 @@ main {
 
 .burger-menu--active span:nth-child(1) {
     background-color: rgb(37, 37, 37);
-    transform: translateY(10px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .burger-menu--active span:nth-child(2) {
@@ -226,13 +225,11 @@ main {
 /* --------------BURGER MENU BACK----------- */
 
 .burger-menu--back {
-    /* position: absolute; */
     position: fixed;
     display: none;
     z-index: 15;
     width: 100%;
     height: 100dvh;
-    /* height: 100%; */
     left: 0;
     top: 0;
     transition: background-color 0.2s ease, backdrop-filter 0.2s ease;
@@ -342,7 +339,7 @@ main {
 }
 
 .card-info-button:hover {
-   background-color: #2980b9;
+    background-color: #2980b9;
 }
 
 /* ---------------------------------ASIDE (FILTERS)----------------------------------- */
@@ -363,11 +360,9 @@ main {
     position: fixed;
     display: flex;
     top: 50%;
-    /* left: 10px; */
     left: 50%;
     transform: translateY(-200%) translateX(-50%);
-    width: 400px;
-    /* width: 70%; */
+    width: 300px;
     height: fit-content;
     transition: transform 0.5s ease;
 }
@@ -453,11 +448,18 @@ main {
 
 /* ---------------FOOTER------------------ */
 footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: #fff;
     box-shadow: var(--box-shadow);
     border-top: var(--border-block)
+}
+
+footer h3:nth-of-type(2) {
+    display: none;
 }
 
 footer h3 {
@@ -467,8 +469,11 @@ footer h3 {
 }
 
 .footer-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
     padding: 50px 30px 40px 30px;
 }
 
@@ -497,6 +502,7 @@ footer h3 {
 }
 
 .footer-reserved {
+    width: 100%;
     color: #7f8c8d;
     text-align: center;
     padding: 35px;
@@ -507,17 +513,6 @@ footer h3 {
 
 /* ----------------------MEDIA----------------------- */
 
-@media (max-width: 620px) {
-    .filters.with-burger {
-        left: 10px;
-        width: 65%;
-        transform: translateY(-200%);
-    }
-
-    .filters.with-burger.active {
-        transform: translateY(-50%);
-    }
-}
 
 
 @media (max-width: 790px) {
@@ -540,6 +535,38 @@ footer h3 {
     }
 }
 
+@media (max-width: 620px) {
+    .filters.with-burger {
+        left: 10px;
+        width: 65%;
+        transform: translateY(-220%);
+    }
+
+    .footer-info {
+        gap: 30px;
+    }
+
+    .filters.with-burger.active {
+        transform: translateY(-50%);
+    }
+
+    footer .footer-info-det:nth-child(3) {
+        margin-left: 0;
+    }
+
+    footer .footer-info-det:nth-child(2) h3:nth-of-type(1) {
+        display: none;
+    }
+
+    footer .footer-info-det:nth-child(2) h3:nth-of-type(2) {
+        display: block;
+    }
+
+    .footer-reserved span {
+        font-size: 0.9rem;
+    }
+}
+
 @media (max-width: 500px) {
     header {
         flex-direction: column;
@@ -558,16 +585,28 @@ footer h3 {
         top: 380px;
     }
 
+    .footer-info-det h3 {
+        font-size: 0.9rem;
+    }
+
+    .footer-info-det a {
+        font-size: 0.7rem;
+    }
+
+    .footer-reserved span {
+        font-size: 0.7rem;
+    }
+
 }
+
 
 @media (max-width: 360px) {
     .burger-menu {
-        /* top: 440px; */
         top: 85dvh;
     }
     .filters {
         gap: 10px;
-        padding: 10px 10px;
+        padding: 20px 20px;
     }
 
     :is(.filers__catigories, .filters-price_range,
@@ -575,17 +614,21 @@ footer h3 {
         gap: 10px
     }
 
+    .filters label {
+        font-size: 0.9rem;
+    }
+
     .filters input {
         margin-right: 10px;
     }
 
     .filters h2 {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         font-weight: 600;
     }
 
     .filters h3 {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         font-weight: 600;
     }
 
